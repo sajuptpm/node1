@@ -46,7 +46,7 @@ jobs:
     steps:
       - name: Download artefacts
         if: (github.event_name == 'workflow_run' && github.event.workflow_run.id) || (inputs.workflow_run_id != '')
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         continue-on-error: true
         with:
           run-id: ${{ inputs.workflow_run_id || (github.event.workflow_run && github.event.workflow_run.id) }}
