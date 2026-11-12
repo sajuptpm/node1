@@ -125,7 +125,7 @@ jobs:
       # Execute actions/stale in debug-only (dry-run) mode
       - name: Process Stale Items (Dry-Run Mode)
         if: env.RESOLVED_MODE == 'native' || env.DRY_RUN == 'true'
-        uses: actions/stale@v9
+        uses: actions/stale@v11
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           days-before-close: ${{ inputs.days_before_close || 30 }}
@@ -141,7 +141,7 @@ jobs:
       # Execute actions/stale in live mutation mode (Original Mode)
       - name: Process Stale Items (Live Original Mode)
         if: env.RESOLVED_MODE == 'original' && env.DRY_RUN == 'false'
-        uses: actions/stale@v9
+        uses: actions/stale@v11
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           days-before-close: ${{ inputs.days_before_close || 30 }}
