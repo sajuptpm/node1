@@ -65,14 +65,14 @@ jobs:
 
       - name: Original Mode - PR Labeler Action
         if: github.event_name == 'pull_request_target' && steps.resolver.outputs.selected_mode == 'original'
-        uses: nodejs/node-pr-labeler@d4cf1b8b9f23189c37917000e5e17e796c770a6b  # v1
+        uses: nodejs/node-pr-labeler@dfe5eb3b099a487644e32567a482744620876ab3  # v1
         with:
           repo-token: ${{ secrets.GH_USER_TOKEN }}
           configuration-path: .github/label-pr-config.yml
 
       - name: Native Mode - Pull Request Event Labeling
         if: github.event_name == 'pull_request_target' && steps.resolver.outputs.selected_mode == 'native'
-        uses: nodejs/node-pr-labeler@d4cf1b8b9f23189c37917000e5e17e796c770a6b  # v1
+        uses: nodejs/node-pr-labeler@dfe5eb3b099a487644e32567a482744620876ab3  # v1
         with:
           repo-token: ${{ secrets.GH_USER_TOKEN || secrets.GITHUB_TOKEN }}
           configuration-path: .github/label-pr-config.yml
