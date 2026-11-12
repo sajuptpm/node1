@@ -145,7 +145,7 @@ jobs:
       - name: Download tarball artifact (Original Mode)
         if: '!inputs.smoke_test && (inputs.mode == ''original'' || (inputs.mode == ''auto'' && github.event_name != ''workflow_dispatch''))'
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: tarballs
           path: tarballs
@@ -173,7 +173,7 @@ jobs:
       - name: Download V8 NAR archive (Original Mode)
         if: inputs.v8-nar && !inputs.smoke_test && (inputs.mode == 'original' || (inputs.mode == 'auto' && github.event_name != 'workflow_dispatch'))
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: ${{ inputs.v8-nar }}
 
