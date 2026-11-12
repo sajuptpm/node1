@@ -189,7 +189,7 @@ jobs:
           cat reports/linux-test-report.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload Linux Test Report Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: test-linux-report
           path: reports/linux-test-report.md

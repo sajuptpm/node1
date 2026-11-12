@@ -112,7 +112,7 @@ jobs:
         run: gh issue comment "$NUMBER" --repo "$GITHUB_REPOSITORY" --body "$STALE_MESSAGE"
 
       - name: Upload Stalled Comment Report
-        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1  # v4.6.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9  # v7.0.2
         if: always()
         with:
           name: stale-comment-report
@@ -176,7 +176,7 @@ jobs:
         run: gh pr comment "$NUMBER" --repo "$GITHUB_REPOSITORY" --body "$FAST_TRACK_MESSAGE"
 
       - name: Upload Fast-Track Report
-        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1  # v4.6.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9  # v7.0.2
         if: always()
         with:
           name: fast-track-report
@@ -240,7 +240,7 @@ jobs:
         run: gh pr comment "$NUMBER" --repo "$GITHUB_REPOSITORY" --body "$NOTABLE_CHANGE_MESSAGE"
 
       - name: Upload Notable Change Report
-        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1  # v4.6.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9  # v7.0.2
         if: always()
         with:
           name: notable-change-report

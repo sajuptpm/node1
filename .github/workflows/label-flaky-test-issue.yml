@@ -174,7 +174,7 @@ jobs:
 
       - name: Upload Flaky Test Labels Report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: flaky-test-labels-report
           path: label-reports/

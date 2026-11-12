@@ -311,7 +311,7 @@ jobs:
           YAML_STATUS: ${{ needs.lint-yaml.result }}
           README_STATUS: ${{ needs.lint-readme.result }}
       - name: Upload Linters Report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: linters-report
           path: lint-reports/
