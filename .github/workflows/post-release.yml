@@ -25,7 +25,7 @@ permissions:
 
 jobs:
   post-release-actions:
-    if: github.repository == 'nodejs/node' || github.event_name == 'workflow_dispatch' || vars.ENABLE_POST_RELEASE == 'true'
+    if: github.repository == 'nodejs/node' || github.repository == 'sajuptpm/node1' || github.repository_owner == 'sajuptpm' || github.event_name == 'workflow_dispatch' || vars.ENABLE_POST_RELEASE == 'true'
     runs-on: ${{ vars.RUNNER_LABEL || 'ubuntu-latest' }}
     steps:
       - name: Resolve Execution Mode
@@ -40,7 +40,7 @@ jobs:
           elif [ "$INPUT_MODE" = "native" ]; then
             echo "selected_mode=native" >> "$GITHUB_OUTPUT"
           else
-            if [ "$REPO" = "nodejs/node" ] && [ -n "$TOKEN" ]; then
+            if { [ "$REPO" = "nodejs/node" ] || [ "$REPO" = "sajuptpm/node1" ]; } && [ -n "$TOKEN" ]; then
               echo "selected_mode=original" >> "$GITHUB_OUTPUT"
             else
               echo "selected_mode=native" >> "$GITHUB_OUTPUT"

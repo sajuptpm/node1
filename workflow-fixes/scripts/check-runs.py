@@ -71,8 +71,8 @@ def format_duration(seconds):
 
 def main():
     parser = argparse.ArgumentParser(description="Monitor and analyze GitHub Actions runs.")
-    parser.add_argument("--repo", default=os.environ.get("GITHUB_REPOSITORY", "sajuptpm/node"),
-                        help="GitHub repository in 'owner/repo' format (default: sajuptpm/node)")
+    parser.add_argument("--repo", default=os.environ.get("GITHUB_REPOSITORY", "sajuptpm/node1"),
+                        help="GitHub repository in 'owner/repo' format (default: sajuptpm/node1)")
     parser.add_argument("--workflow", help="Filter runs by specific workflow file name (e.g. test-linux.yml)")
     parser.add_argument("--status", choices=["all", "completed", "in_progress", "queued"], default="all",
                         help="Filter by run status (default: all)")

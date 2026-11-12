@@ -113,7 +113,7 @@ gh workflow run stale.yml --ref main -f dry_run=true -f days_before_stale=60 -f 
 import os, requests
 
 TOKEN = os.environ.get("GH_TOKEN")
-REPO = "sajuptpm/node"
+REPO = "sajuptpm/node1"
 url = f"https://api.github.com/repos/{REPO}/actions/workflows/stale.yml/dispatches"
 headers = {"Authorization": f"Bearer {TOKEN}", "Accept": "application/vnd.github+json"}
 payload = {

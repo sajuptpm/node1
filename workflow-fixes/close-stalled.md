@@ -112,7 +112,7 @@ gh workflow run close-stalled.yml --ref main -f dry_run=true -f mode=native -f d
 import os, requests
 
 TOKEN = os.environ.get("GH_TOKEN")
-REPO = "sajuptpm/node"
+REPO = "sajuptpm/node1"
 url = f"https://api.github.com/repos/{REPO}/actions/workflows/close-stalled.yml/dispatches"
 headers = {"Authorization": f"Bearer {TOKEN}", "Accept": "application/vnd.github+json"}
 payload = {

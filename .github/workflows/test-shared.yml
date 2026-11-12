@@ -138,7 +138,7 @@ permissions:
 
 jobs:
   build-tarball:
-    if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && (github.repository == 'nodejs/node' || vars.ENABLE_SHARED_TESTS == 'true'))
+    if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && (github.repository == 'nodejs/node' || github.repository == 'sajuptpm/node1' || github.repository_owner == 'sajuptpm' || vars.ENABLE_SHARED_TESTS == 'true'))
     name: Build slim tarball
 
     runs-on: ${{ vars.RUNNER_LABEL || 'ubuntu-latest' }}
@@ -149,7 +149,7 @@ jobs:
 
       - name: Make tarball
         run: |
-          if [ "${{ inputs.smoke_test }}" = "true" ] || [ "${{ inputs.mode }}" = "native" ] || [ "${{ github.event_name }}" = "push" && "${{ vars.ENABLE_SHARED_TESTS }}" != "true" && "${{ github.repository }}" != "nodejs/node" ]; then
+          if [ "${{ inputs.smoke_test }}" = "true" ] || [ "${{ inputs.mode }}" = "native" ] || [ "${{ github.event_name }}" = "push" && "${{ vars.ENABLE_SHARED_TESTS }}" != "true" && "${{ github.repository }}" != "nodejs/node" && "${{ github.repository }}" != "sajuptpm/node1" ]; then
             echo "Smoke test mode: Creating source tarball for shared build testing..."
             tar --exclude='.git' -czf "node-sources.tar.gz" .
           else
@@ -202,7 +202,7 @@ jobs:
           if-no-files-found: ignore
 
   build:
-    if: inputs.smoke_test == false && inputs.mode == 'original' && (github.repository == 'nodejs/node' || vars.ENABLE_SHARED_TESTS == 'true')
+    if: inputs.smoke_test == false && inputs.mode == 'original' && (github.repository == 'nodejs/node' || github.repository == 'sajuptpm/node1' || github.repository_owner == 'sajuptpm' || vars.ENABLE_SHARED_TESTS == 'true')
     needs: build-tarball
     strategy:
       fail-fast: false
@@ -238,7 +238,7 @@ jobs:
       CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
   build-aarch64-linux-v8:
-    if: inputs.smoke_test == false && inputs.mode == 'original' && (github.repository == 'nodejs/node' || vars.ENABLE_SHARED_TESTS == 'true')
+    if: inputs.smoke_test == false && inputs.mode == 'original' && (github.repository == 'nodejs/node' || github.repository == 'sajuptpm/node1' || github.repository_owner == 'sajuptpm' || vars.ENABLE_SHARED_TESTS == 'true')
     needs: build-tarball
     runs-on: ${{ vars.ARM_RUNNER_LABEL || 'ubuntu-24.04-arm' }}
     name: 'aarch64-linux: Cache V8 build'
@@ -312,7 +312,7 @@ jobs:
   # entry, while all other shared libs remain at their defaults. Only runs on
   # a single runner/system (aarch64-linux) to keep the matrix to a minimum.
   build-openssl:
-    if: inputs.smoke_test == false && inputs.mode == 'original' && (github.repository == 'nodejs/node' || vars.ENABLE_SHARED_TESTS == 'true')
+    if: inputs.smoke_test == false && inputs.mode == 'original' && (github.repository == 'nodejs/node' || github.repository == 'sajuptpm/node1' || github.repository_owner == 'sajuptpm' || vars.ENABLE_SHARED_TESTS == 'true')
     needs: build-aarch64-linux-v8
     strategy:
       fail-fast: false

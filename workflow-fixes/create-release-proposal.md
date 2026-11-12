@@ -127,7 +127,7 @@ gh workflow run create-release-proposal.yml --ref main -f release-line=22 -f rel
 import os, requests
 
 TOKEN = os.environ.get("GH_TOKEN")
-REPO = "sajuptpm/node"
+REPO = "sajuptpm/node1"
 url = f"https://api.github.com/repos/{REPO}/actions/workflows/create-release-proposal.yml/dispatches"
 headers = {"Authorization": f"Bearer {TOKEN}", "Accept": "application/vnd.github+json"}
 payload = {

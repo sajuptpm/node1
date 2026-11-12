@@ -129,7 +129,7 @@ gh workflow run auto-start-ci.yml --ref main -f pr_numbers="" -f mode=native -f 
 import os, requests
 
 TOKEN = os.environ.get("GH_TOKEN")
-REPO = "sajuptpm/node"
+REPO = "sajuptpm/node1"
 url = f"https://api.github.com/repos/{REPO}/actions/workflows/auto-start-ci.yml/dispatches"
 headers = {"Authorization": f"Bearer {TOKEN}", "Accept": "application/vnd.github+json"}
 payload = {

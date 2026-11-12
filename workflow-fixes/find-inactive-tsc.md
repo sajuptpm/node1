@@ -128,7 +128,7 @@ gh workflow run find-inactive-tsc.yml --ref main -f create_pr=true -f mode=origi
 import os, requests
 
 TOKEN = os.environ.get("GH_TOKEN")
-REPO = "sajuptpm/node"
+REPO = "sajuptpm/node1"
 url = f"https://api.github.com/repos/{REPO}/actions/workflows/find-inactive-tsc.yml/dispatches"
 headers = {"Authorization": f"Bearer {TOKEN}", "Accept": "application/vnd.github+json"}
 payload = {

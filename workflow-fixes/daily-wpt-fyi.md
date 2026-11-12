@@ -129,7 +129,7 @@ gh workflow run daily-wpt-fyi.yml --ref main -f node_version=all -f mode=native 
 import os, requests
 
 TOKEN = os.environ.get("GH_TOKEN")
-REPO = "sajuptpm/node"
+REPO = "sajuptpm/node1"
 url = f"https://api.github.com/repos/{REPO}/actions/workflows/daily-wpt-fyi.yml/dispatches"
 headers = {"Authorization": f"Bearer {TOKEN}", "Accept": "application/vnd.github+json"}
 payload = {"ref": "main", "inputs": {"node_version": "22", "mode": "native", "dry_run": "true"}}

@@ -30,7 +30,7 @@ permissions:
 
 jobs:
   create-issue:
-    if: github.repository == 'nodejs/node' || github.event_name == 'workflow_dispatch' || vars.ENABLE_MAJOR_RELEASE == 'true'
+    if: github.repository == 'nodejs/node' || github.repository == 'sajuptpm/node1' || github.repository_owner == 'sajuptpm' || github.event_name == 'workflow_dispatch' || vars.ENABLE_MAJOR_RELEASE == 'true'
     runs-on: ${{ vars.RUNNER_LABEL || 'ubuntu-latest' }}
     permissions:
       issues: write
@@ -109,7 +109,7 @@ jobs:
             DO_CREATE="true"
           elif [ "$CREATE_FLAG" = "true" ] || [ "${{ vars.CREATE_MAJOR_RELEASE_ISSUE }}" = "true" ]; then
             DO_CREATE="true"
-          elif [ "${{ github.repository }}" = "nodejs/node" ] && [ "${{ github.event_name }}" = "schedule" ]; then
+          elif { [ "${{ github.repository }}" = "nodejs/node" ] || [ "${{ github.repository }}" = "sajuptpm/node1" ]; } && [ "${{ github.event_name }}" = "schedule" ]; then
             DO_CREATE="true"
           fi
 

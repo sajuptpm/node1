@@ -92,7 +92,7 @@ permissions:
 
 jobs:
   test-macOS:
-    if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && (github.repository == 'nodejs/node' || vars.ENABLE_MACOS_TESTS == 'true'))
+    if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && (github.repository == 'nodejs/node' || github.repository == 'sajuptpm/node1' || github.repository_owner == 'sajuptpm' || vars.ENABLE_MACOS_TESTS == 'true'))
     strategy:
       fail-fast: false
     runs-on: ${{ vars.MAC_RUNNER_LABEL || 'macos-latest' }}
@@ -112,7 +112,7 @@ jobs:
             RESOLVED="original"
           elif [ "$INPUT_MODE" = "native" ] || [ "$IS_SMOKE" = "true" ]; then
             RESOLVED="native"
-          elif [ "${{ github.repository }}" = "nodejs/node" ]; then
+          elif [ "${{ github.repository }}" = "nodejs/node" ] || [ "${{ github.repository }}" = "sajuptpm/node1" ]; then
             RESOLVED="original"
           else
             RESOLVED="native"

@@ -1,6 +1,6 @@
 # CI/CD Automation & Testing Toolset
 
-This directory contains standalone Python automation scripts developed to test, monitor, validate, and manage all 45 GitHub Actions workflows in `sajuptpm/node`.
+This directory contains standalone Python automation scripts developed to test, monitor, validate, and manage all 45 GitHub Actions workflows in `sajuptpm/node1`.
 
 ---
 

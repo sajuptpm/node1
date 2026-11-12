@@ -56,7 +56,7 @@ jobs:
   get-prs-for-ci:
     permissions:
       pull-requests: read
-    if: github.repository == 'nodejs/node' || github.repository_owner == 'sajuptpm' || github.event_name == 'workflow_dispatch' || vars.ENABLE_AUTO_START_CI == 'true'
+    if: github.repository == 'nodejs/node' || github.repository == 'sajuptpm/node1' || github.repository_owner == 'sajuptpm' || github.event_name == 'workflow_dispatch' || vars.ENABLE_AUTO_START_CI == 'true'
     runs-on: ${{ vars.RUNNER_LABEL || 'ubuntu-latest' }}
     outputs:
       numbers: ${{ steps.get_prs_for_ci.outputs.numbers }}

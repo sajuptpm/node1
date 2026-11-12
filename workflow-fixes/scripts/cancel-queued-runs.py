@@ -45,8 +45,8 @@ def get_auth_token():
 
 def main():
     parser = argparse.ArgumentParser(description="Cancel active queued or in-progress workflow runs.")
-    parser.add_argument("--repo", default=os.environ.get("GITHUB_REPOSITORY", "sajuptpm/node"),
-                        help="GitHub repository in 'owner/repo' format (default: sajuptpm/node)")
+    parser.add_argument("--repo", default=os.environ.get("GITHUB_REPOSITORY", "sajuptpm/node1"),
+                        help="GitHub repository in 'owner/repo' format (default: sajuptpm/node1)")
     parser.add_argument("--workflow", help="Filter by specific workflow name or file (e.g. test-linux.yml)")
     parser.add_argument("--dry-run", action="store_true", help="List active runs without sending cancellation requests")
 

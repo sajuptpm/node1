@@ -60,7 +60,7 @@ jobs:
     permissions:
       issues: write
       pull-requests: write
-    if: (github.repository == 'nodejs/node' || github.repository_owner == 'sajuptpm' || github.event_name == 'workflow_dispatch' || vars.ENABLE_COMMENT_LABELED == 'true') && (github.event.label.name == 'stalled' || inputs.label == 'stalled' || inputs.label == 'all')
+    if: (github.repository == 'nodejs/node' || github.repository == 'sajuptpm/node1' || github.repository_owner == 'sajuptpm' || github.event_name == 'workflow_dispatch' || vars.ENABLE_COMMENT_LABELED == 'true') && (github.event.label.name == 'stalled' || inputs.label == 'stalled' || inputs.label == 'all')
     runs-on: ${{ vars.RUNNER_LABEL || 'ubuntu-latest' }}
     steps:
       - name: Resolve Execution Mode
@@ -124,7 +124,7 @@ jobs:
 
     permissions:
       pull-requests: write
-    if: (github.repository == 'nodejs/node' || github.repository_owner == 'sajuptpm' || github.event_name == 'workflow_dispatch' || vars.ENABLE_COMMENT_LABELED == 'true') && (github.event.label.name == 'fast-track' || inputs.label == 'fast-track' || inputs.label == 'all')
+    if: (github.repository == 'nodejs/node' || github.repository == 'sajuptpm/node1' || github.repository_owner == 'sajuptpm' || github.event_name == 'workflow_dispatch' || vars.ENABLE_COMMENT_LABELED == 'true') && (github.event.label.name == 'fast-track' || inputs.label == 'fast-track' || inputs.label == 'all')
     runs-on: ${{ vars.RUNNER_LABEL || 'ubuntu-latest' }}
     steps:
       - name: Resolve Execution Mode
@@ -188,7 +188,7 @@ jobs:
 
     permissions:
       pull-requests: write
-    if: (github.repository == 'nodejs/node' || github.repository_owner == 'sajuptpm' || github.event_name == 'workflow_dispatch' || vars.ENABLE_COMMENT_LABELED == 'true') && (github.event.label.name == 'notable-change' || inputs.label == 'notable-change' || inputs.label == 'all')
+    if: (github.repository == 'nodejs/node' || github.repository == 'sajuptpm/node1' || github.repository_owner == 'sajuptpm' || github.event_name == 'workflow_dispatch' || vars.ENABLE_COMMENT_LABELED == 'true') && (github.event.label.name == 'notable-change' || inputs.label == 'notable-change' || inputs.label == 'all')
     runs-on: ${{ vars.RUNNER_LABEL || 'ubuntu-latest' }}
     steps:
       - name: Resolve Execution Mode

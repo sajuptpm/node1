@@ -41,7 +41,7 @@ permissions:
 
 jobs:
   build-docs:
-    if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) || (github.event_name == 'push' && (github.repository == 'nodejs/node' || vars.ENABLE_DOCS_BUILD == 'true')) || github.event_name == 'workflow_dispatch'
+    if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) || (github.event_name == 'push' && (github.repository == 'nodejs/node' || github.repository == 'sajuptpm/node1' || github.repository_owner == 'sajuptpm' || vars.ENABLE_DOCS_BUILD == 'true')) || github.event_name == 'workflow_dispatch'
     runs-on: ${{ vars.RUNNER_LABEL || 'ubuntu-latest' }}
     steps:
       - uses: actions/checkout@v4
@@ -63,7 +63,7 @@ jobs:
           INPUT_MODE="${{ inputs.mode || 'auto' }}"
 
           if [ "$INPUT_MODE" = "auto" ]; then
-            if [ "${{ github.repository }}" = "nodejs/node" ] || [ "${{ github.event_name }}" = "pull_request" ]; then
+            if [ "${{ github.repository }}" = "nodejs/node" ] || [ "${{ github.repository }}" = "sajuptpm/node1" ] || [ "${{ github.event_name }}" = "pull_request" ]; then
               RESOLVED_MODE="original"
               RESOLVED_SCOPE="full"
             else

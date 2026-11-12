@@ -65,8 +65,8 @@ def format_duration(seconds):
 def main():
     parser = argparse.ArgumentParser(description="Inspect job and step details for a GitHub Actions workflow run.")
     parser.add_argument("run_id", nargs="?", help="GitHub Actions Run ID (defaults to latest run if omitted)")
-    parser.add_argument("--repo", default=os.environ.get("GITHUB_REPOSITORY", "sajuptpm/node"),
-                        help="GitHub repository in 'owner/repo' format (default: sajuptpm/node)")
+    parser.add_argument("--repo", default=os.environ.get("GITHUB_REPOSITORY", "sajuptpm/node1"),
+                        help="GitHub repository in 'owner/repo' format (default: sajuptpm/node1)")
 
     args = parser.parse_args()
     token = get_auth_token()

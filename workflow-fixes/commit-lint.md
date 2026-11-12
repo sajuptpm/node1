@@ -117,7 +117,7 @@ gh workflow run commit-lint.yml --ref main -f mode=native -f fail_on_invalid=tru
 import os, requests
 
 TOKEN = os.environ.get("GH_TOKEN")
-REPO = "sajuptpm/node"
+REPO = "sajuptpm/node1"
 url = f"https://api.github.com/repos/{REPO}/actions/workflows/commit-lint.yml/dispatches"
 headers = {"Authorization": f"Bearer {TOKEN}", "Accept": "application/vnd.github+json"}
 payload = {"ref": "main", "inputs": {"mode": "native", "commit_message": "build: update toolchain configuration"}}

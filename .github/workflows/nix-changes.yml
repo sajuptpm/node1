@@ -53,7 +53,7 @@ permissions:
 
 jobs:
   resolve-matrix:
-    if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) || (github.event_name == 'push' && (github.repository == 'nodejs/node' || vars.ENABLE_NIX_CHANGES == 'true')) || github.event_name == 'workflow_dispatch'
+    if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) || (github.event_name == 'push' && (github.repository == 'nodejs/node' || github.repository == 'sajuptpm/node1' || github.repository_owner == 'sajuptpm' || vars.ENABLE_NIX_CHANGES == 'true')) || github.event_name == 'workflow_dispatch'
     runs-on: ${{ vars.RUNNER_LABEL || 'ubuntu-latest' }}
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
@@ -180,7 +180,7 @@ jobs:
           if-no-files-found: ignore
 
   lint-nix:
-    if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) || (github.event_name == 'push' && (github.repository == 'nodejs/node' || vars.ENABLE_NIX_CHANGES == 'true')) || github.event_name == 'workflow_dispatch'
+    if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) || (github.event_name == 'push' && (github.repository == 'nodejs/node' || github.repository == 'sajuptpm/node1' || github.repository_owner == 'sajuptpm' || vars.ENABLE_NIX_CHANGES == 'true')) || github.event_name == 'workflow_dispatch'
     runs-on: ${{ vars.RUNNER_LABEL || 'ubuntu-latest' }}
     steps:
       - uses: actions/checkout@v4

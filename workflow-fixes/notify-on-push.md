@@ -141,7 +141,7 @@ gh workflow run notify-on-push.yml --ref main -f mode=native -f fail_on_invalid=
 import os, requests
 
 TOKEN = os.environ.get("GH_TOKEN")
-REPO = "sajuptpm/node"
+REPO = "sajuptpm/node1"
 url = f"https://api.github.com/repos/{REPO}/actions/workflows/notify-on-push.yml/dispatches"
 headers = {"Authorization": f"Bearer {TOKEN}", "Accept": "application/vnd.github+json"}
 payload = {"ref": "main", "inputs": {"mode": "native", "simulate_force_push": "false"}}

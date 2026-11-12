@@ -72,7 +72,7 @@ permissions:
 
 jobs:
   test-linux:
-    if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && (github.repository == 'nodejs/node' || vars.ENABLE_TEST_LINUX == 'true'))
+    if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && (github.repository == 'nodejs/node' || github.repository == 'sajuptpm/node1' || github.repository_owner == 'sajuptpm' || vars.ENABLE_TEST_LINUX == 'true'))
     runs-on: ${{ vars.RUNNER_LABEL || matrix.os }}
     strategy:
       fail-fast: false

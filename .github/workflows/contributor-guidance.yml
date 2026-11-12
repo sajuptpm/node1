@@ -52,7 +52,7 @@ jobs:
     name: Resolve contributor status
     # Avoid allocating a runner unless a welcome or scan is a plausible outcome.
     if: >-
-      (github.repository == 'nodejs/node' || github.repository_owner == 'sajuptpm' || github.event_name == 'workflow_dispatch' || vars.ENABLE_CONTRIBUTOR_GUIDANCE == 'true') &&
+      (github.repository == 'nodejs/node' || github.repository == 'sajuptpm/node1' || github.repository_owner == 'sajuptpm' || github.event_name == 'workflow_dispatch' || vars.ENABLE_CONTRIBUTOR_GUIDANCE == 'true') &&
       github.run_attempt == 1 &&
       (github.event_name == 'workflow_dispatch' ||
        (github.event.pull_request.user.type != 'Bot' &&

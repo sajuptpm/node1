@@ -42,8 +42,8 @@ def get_auth_token():
 def main():
     parser = argparse.ArgumentParser(description="Trigger a GitHub Actions workflow on demand.")
     parser.add_argument("workflow", help="Workflow file name (e.g. test-linux.yml, linters.yml) or ID")
-    parser.add_argument("--repo", default=os.environ.get("GITHUB_REPOSITORY", "sajuptpm/node"),
-                        help="GitHub repository in 'owner/repo' format (default: sajuptpm/node)")
+    parser.add_argument("--repo", default=os.environ.get("GITHUB_REPOSITORY", "sajuptpm/node1"),
+                        help="GitHub repository in 'owner/repo' format (default: sajuptpm/node1)")
     parser.add_argument("--ref", default="main", help="Git ref/branch to trigger (default: main)")
     parser.add_argument("--mode", choices=["auto", "native", "original"], default="native",
                         help="Execution mode (default: native)")
