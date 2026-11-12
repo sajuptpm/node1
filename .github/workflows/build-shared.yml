@@ -159,7 +159,7 @@ jobs:
 
       - name: Install Nix (Original Mode)
         if: '!inputs.smoke_test && (inputs.mode == ''original'' || (inputs.mode == ''auto'' && github.event_name != ''workflow_dispatch''))'
-        uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24  # v31.11.1
+        uses: cachix/install-nix-action@75c75c31ebece974e48ebc36b4ad125bd97bd97b  # v31.11.3
         with:
           extra_nix_config: sandbox = true
 
