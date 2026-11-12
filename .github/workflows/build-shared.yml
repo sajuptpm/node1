@@ -179,7 +179,7 @@ jobs:
 
       - name: Configure sccache (Original Mode)
         if: inputs.with-sccache && !inputs.smoke_test && (inputs.mode == 'original' || (inputs.mode == 'auto' && github.event_name != 'workflow_dispatch'))
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             core.exportVariable('SCCACHE_GHA_ENABLED', 'on');
