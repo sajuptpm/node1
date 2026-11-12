@@ -155,7 +155,7 @@ jobs:
           cat reports/stress-test-report.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload Stress Test Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: stress-test-report
           path: reports/stress-test-report.md
